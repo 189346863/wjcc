@@ -172,20 +172,4 @@ admin_password
 4. 本版本只防止恶意上传和配置篡改，不做文件内容私密访问控制。
 5. 文件列表和下载接口是公开的，这与你的需求“存储的文件无需保密”一致。
 
-## 9. 替换旧代码时的兼容性
 
-旧版本已有文件仍可读取，因为旧版本的 key 结构基本保留：
-
-- 文件内容 key：`fileId`
-- 元数据 key：`meta_fileId`
-- 下载次数 key：`downloads_fileId`
-
-新版本新增或改进字段：
-
-- `sizeBytes`
-- `sizeText`
-- `mimeType`
-- `ext`
-- `uploadTime`
-
-旧文件如果没有 `sizeBytes`，代码会尝试从旧的 `size` 字符串估算。
